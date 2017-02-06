@@ -5,7 +5,7 @@ DROP TABLE tags;
 CREATE TABLE users (
 id SERIAL8 primary key,
 name VARCHAR(255) not null,
-budget INT8
+budget float(5,2)
 );
 
 
