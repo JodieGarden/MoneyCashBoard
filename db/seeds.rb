@@ -1,16 +1,21 @@
 require('pry-byebug')
-require('./models/users')
-require('./models/transactions')
 require('./models/tags')
+require('./models/transactions')
+require('./models/users')
 
 
 
 
 
-user1 = Users.new({'name' => 'Jodie', 'budget' => 1500})
+merchant1 = Merchant.new({'name' => 'Tesco', 'amount' => 10})
 
+merchant2 = Merchant.new({'name' =>'Subway', 'amount' => 30})
 
-transaction1 = Transactions.new({'original_total' => 1500, 'total' => 1250})
+merchant1.save
+
+transaction1 = Transaction.new({'total' => 1250})
+
+transaction1.save
 
 tag1 = Tags.new ({'name' => 'Shopping', 'category' => 'food'})
 

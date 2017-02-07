@@ -1,0 +1,12 @@
+<table>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th>Speed</th>
+    </tr>
+    <% for transaction in @transactions %>
+    <tr>
+      <td><%= transaction.amount %></td>
+    </tr>
+    <% end %>
+  </table>

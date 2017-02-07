@@ -1,33 +1,38 @@
 require_relative('../db/SqlRunner')
 
-class Transactions
+class Transaction
 
-  attr_accessor(:id, :original_total, :total)
+  attr_accessor(:id,:total)
 
   def initialize (options)
     @id = options['id'].to_i
-    @original_total = options['original_total'].to_i
     @total = options['total'].to_i
   end
 
-  def save()
-    sql = "INSERT INTO transactions (original_total, total) VALUES (#{@original_total}, #{@total}) RETURNING *;"
-    results = SqlRunner.run(sql).first
-  end
+    def save()
+      sql = "INSERT INTO transactions (
+        total
+      ) VALUES (#{ @total}
+      ) RETURNING *"
+      results = SqlRunner.run(sql)
+      @id = results.first()['id'].to_i
+    end
 
-  def get_many()
-    sql = "SELECT * FROM transactions"
-    results = SqlRunner.run( sql )
-    return results.map { |hash| Transactions.new( hash ) }
-  end
+    def all()
+      sql = "SELECT * FROM transactions"
+      results = SqlRunner.run( sql )
+      return results.map { |hash| Transaction.new( hash ) }
+    end
 
-  def find(id)
-    sql = "SELECT * FROM transactions WHERE id = #{'id'}"
-    transaction = SqlRunner.run(sql)
-    result = Transactions.new(transaction.first)
-    return result
-  end
+    def find( id )
+      sql = "SELECT * FROM transactions WHERE id=#{id}"
+      results = SqlRunner.run( sql )
+      return Transaction.new( results.first )
+    end
 
+    def delete_all
+      sql = "DELETE FROM transaction"
+      SqlRunner.run( sql )
+    end
 
 end
-
