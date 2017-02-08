@@ -1,0 +1,18 @@
+h1{
+  font-family: 'Cinzel', serif;
+
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+
+body {
+background white url: ('the-last-shirt-dollar-bill-20-euro-folded-128878.jpeg')
+background-size: 100%;
+background-repeat: no-repeat;
+color: papayawhip;
+padding: 0px;
+margin: 0px;;
+}

@@ -1,0 +1,11 @@
+<div class="Transaction Details">
+
+<p4>First Name: <%= @transaction.name %> </p4>
+<p5>Total: <%= @transaction.total %> </p5>
+<p8><a href="/transactions/<%= @transaction.id %>/edit">Edit Transaction</a></p8>
+
+</div>
+
+<form action="/transactions/<%= @transactions.id %>/delete" method="post">
+<input type ="submit" value="Delete" />
+</form>

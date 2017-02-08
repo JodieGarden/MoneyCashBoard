@@ -1,0 +1,21 @@
+<table>
+    <tr>
+      <th>Amount</th>
+      <td>|</td>
+      <th>Name</th>
+    </tr>
+    <% for transaction in @transactions %>
+    <tr>
+      <td><%= transaction.total %></td>
+      <td>|</td>
+      <td><%=transaction.name%></td>
+      <td>
+      <p3><a href="/transactions/show">Edit Transaction</a></p3>
+      </td>
+    </tr>
+
+
+    <% end %>
+    <p4><a href="/transactions/new">New Transaction
+  </table>
+
